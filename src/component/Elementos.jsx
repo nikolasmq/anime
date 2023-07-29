@@ -4,27 +4,8 @@ import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
 
-const AnimeCard = ({ anime }) => {
-  return (
-    <div className="card">
-      <img src={anime.images.jpg.image_url} className="card-img-top" alt={anime.title} />
-      <div className="card-body">
-        <h5 className="card-title">{anime.title}</h5>
-        <p>{anime.score}</p>
-        {anime.score >0 && anime.score <= 4 ? (
-          <span className="score">Score: {anime.score} - No recomendado</span>
-        ) : anime.score > 4 && anime.score <= 7 ? (
-          <span className="score">Score: {anime.score} - Bueno</span>
-        ) : anime.score > 7 ? (
-          <span className="score">Score: {anime.score} - Recomendado</span>
-        ) : (
-          <span className="score">Score: N/A</span>
-        )}
-        <a href={anime.url} className="btn btn-primary">Ver más</a>
-      </div>
-    </div>
-  );
-};
+import AnimeCard from './Card';
+
 
 const AnimeList = () => {
   const [animeList, setAnimeList] = useState([]);
@@ -64,15 +45,17 @@ const AnimeList = () => {
 
   return (
     <div>
-      <input
-        className='input-group mb-3'
-        type="text"
-        value={searchTerm}
-        onChange={e => setSearchTerm(e.target.value)}
-        placeholder="Buscar..."
-      />
-      <button onClick={handleSearch}>Buscar</button>
-
+      <form className="d-flex">
+        <input
+          className="form-control me-2" 
+          type="search"
+          value={searchTerm}
+          onChange={e => setSearchTerm(e.target.value)}
+          placeholder="Buscar..."
+        />
+        <button className="btn btn-outline-success" onClick={handleSearch}>Buscar</button>
+      </form>
+      
       <h1>Anime List</h1>
       <Slider {...settings}>
         {animeList.map(anime => (
