@@ -39,13 +39,39 @@ const AnimeList = () => {
     speed: 500,
     slidesToShow: 5,
     slidesToScroll: 1,
-    autopay: true,
-    autoplaySpeed: 10,
+    autoplay: true,
+    autoplaySpeed: 3000, // Velocidad de la rotación automática en milisegundos
+    responsive: [
+      {
+        breakpoint: 1200, // Puedes ajustar los breakpoints según tus necesidades
+        settings: {
+          slidesToShow: 4,
+        }
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 3,
+        }
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 2,
+        }
+      },
+      {
+        breakpoint: 576,
+        settings: {
+          slidesToShow: 1,
+        }
+      }
+    ]
   };
 
   return (
     <div>
-      <form className="d-flex">
+      <div className="d-flex">
         <input
           className="form-control me-2" 
           type="search"
@@ -54,8 +80,9 @@ const AnimeList = () => {
           placeholder="Buscar..."
         />
         <button className="btn btn-outline-success" onClick={handleSearch}>Buscar</button>
-      </form>
+      </div>
       
+
       <h1>Anime List</h1>
       <Slider {...settings}>
         {animeList.map(anime => (

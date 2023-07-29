@@ -4,9 +4,13 @@ import Elementos from './component/Elementos';
 function App() {
   return (
     <div className="App">
-      <body className="App-body">
-        < Elementos />
-      </body>
+      <div className="container">
+        <div className="row">
+          <div className="col">
+            <Elementos />
+          </div>
+        </div>
+      </div>
     </div>
   );
 }
