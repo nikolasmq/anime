@@ -71,7 +71,7 @@ const AnimeList = () => {
   return (
     <div>
       <div id='main'>
-      <h1 className='d-flex align-items-center justify-content-center' id='main-title'>listados de anime</h1>
+      <h1 className='d-flex align-items-center justify-content-center' id='main-title'>Busca tus series de Anime favoritas</h1>
         <div className="d-flex p-5">
         <input
           className="form-control me-2" 
