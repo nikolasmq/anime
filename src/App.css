@@ -4,10 +4,7 @@ body.App-body {
   margin-top: 3rem;
 }
 .card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 250px; /* Tamaño fijo del contenedor de la tarjeta */
+  width: 18rem; /* Tamaño fijo del contenedor de la tarjeta */
   border: 1px solid #ccc;
   border-radius: 8px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -17,7 +14,7 @@ body.App-body {
 
 .card-image-container {
   width: 100%; /* La imagen ocupará todo el ancho del contenedor */
-  height: 200px; /* Tamaño fijo de la imagen */
+  height: 10rem; /* Tamaño fijo de la imagen */
   overflow: hidden; /* Se oculta cualquier parte de la imagen que exceda el tamaño */
   border-radius: 8px;
 }
@@ -35,6 +32,7 @@ body.App-body {
   justify-content: space-between;
   align-items: center;
   padding-top: 10px; /* Espacio entre la imagen y el contenido del cuerpo */
+  min-height: 260px;
 }
 
 .card-title {
@@ -45,3 +43,26 @@ body.App-body {
 .score {
   font-size: 14px;
 }
+
+.card-header{
+  height: 110px;
+}
+
+.card-footer{
+  height: 130px;
+}
+#title{
+  font-size: 1rem;
+}
+#main-title{
+  font-size: 2rem;
+  font-weight: bold;
+  padding: 25px;;  
+}
+div#main {
+  background: #d3d3d324;
+  padding: 25px;
+  margin-top: 20px;
+  border-radius: 15px;
+}
+

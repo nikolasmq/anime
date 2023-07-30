@@ -6,7 +6,6 @@ import 'slick-carousel/slick/slick-theme.css';
 
 import AnimeCard from './Card';
 
-
 const AnimeList = () => {
   const [animeList, setAnimeList] = useState([]);
   const [searchTerm, setSearchTerm] = useState('');
@@ -24,7 +23,7 @@ const AnimeList = () => {
 
   const handleSearch = () => {
     // Realizar la petición GET a la API con el término de búsqueda
-    axios.get(`https://api.jikan.moe/v4/anime?q=${searchTerm}&page=1&limit=10`)
+    axios.get(`https://api.jikan.moe/v4/anime?q=${searchTerm}&page=1`)
       .then(response => {
         setAnimeList(response.data.data);
       })
@@ -71,7 +70,9 @@ const AnimeList = () => {
 
   return (
     <div>
-      <div className="d-flex">
+      <div id='main'>
+      <h1 className='d-flex align-items-center justify-content-center' id='main-title'>listados de anime</h1>
+        <div className="d-flex p-5">
         <input
           className="form-control me-2" 
           type="search"
@@ -82,13 +83,12 @@ const AnimeList = () => {
         <button className="btn btn-outline-success" onClick={handleSearch}>Buscar</button>
       </div>
       
-
-      <h1>Anime List</h1>
-      <Slider {...settings}>
-        {animeList.map(anime => (
-          <AnimeCard key={anime.mal_id} anime={anime} />
-        ))}
-      </Slider>
+        <Slider {...settings}>
+          {animeList.map(anime => (
+            <AnimeCard key={anime.mal_id} anime={anime} />
+          ))}
+        </Slider>
+      </div>
     </div>
   );
 };
